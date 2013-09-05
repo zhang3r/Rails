@@ -1,4 +1,0 @@
-Rails
-=====
-
-Ruby on Rails
