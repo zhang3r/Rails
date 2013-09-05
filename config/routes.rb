@@ -1,5 +1,13 @@
 Personal::Application.routes.draw do
-    get "pages/home"
+
+    root 'pages#home'
+    match '/news', to: 'pages#news', via: 'get'
+    match '/about', to: 'pages#whoami', via: 'get'
+    match '/jobs', to: 'pages#jobs', via: 'get'
+    match '/contact', to: 'pages#contactme', via: 'get'
+
+
+   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
