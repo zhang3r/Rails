@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
   sendgrid_category :use_subject_lines
   sendgrid_enable   :ganalytics, :opentrack
   sendgrid_unique_args :key1 => "value1", :key2 => "value2"
-  default from: "from@example.com"
+  default from: "zhang3r@gatech.edu"
 
   def welcome_email
   sendgrid_category "Welcome"
