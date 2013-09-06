@@ -1,5 +1,7 @@
 Personal::Application.routes.draw do
 
+  resources :users
+
     root 'pages#home'
     match '/news', to: 'pages#news', via: 'get'
     match '/about', to: 'pages#whoami', via: 'get'

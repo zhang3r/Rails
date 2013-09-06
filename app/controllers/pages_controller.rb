@@ -1,4 +1,10 @@
 class PagesController < ApplicationController
+	helper_method :sendEmail
+
+	def sendEmail
+		 UserMailer.welcome_email.deliver
+	end
+
 	def home
 	end
 
@@ -11,7 +17,9 @@ class PagesController < ApplicationController
 	def jobs
 	end
 
-	def contactme
+	def contactme		
+		sendEmail
+		puts "email was sent"
 	end
 	
 end
