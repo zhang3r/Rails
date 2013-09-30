@@ -24,11 +24,13 @@ class Base64
 				end
 			end
 			if(temp.length!=0)
-				numAry.push($encoding[temp.to_i(2)])
-				if(temp.length<=4)
+				
+				if(temp.length>2)
+					numAry.push($encoding[(temp<<"00").to_i(2)])
 					numAry.push("=")
-				end
-				if(temp.length<=2)
+				else
+					numAry.push($encoding[(temp<<"0000").to_i(2)])
+					numAry.push("=")
 					numAry.push("=")
 				end
 			end
@@ -57,23 +59,23 @@ class Base64
 		# 	end
 		# 	if(numAry.length!=0)
 		# 		numAry.each do |i|
-		# 			temp<<i.to_s(2)
+		# 			temp<<i.to_s(2).inspect
 		# 		end
-		# 		temp2=temp.split("")
-		# 		temp2.each do |i|
-		# 			tempstr=tempstr<<i
-		# 			if(tempstr.length==8)
-		# 				result.push(tempstr)
-		# 				tempstr=""
-		# 			end
-		# 		end
-		# 		if(tempstr.length!=0)
-		# 			result.push(tempstr)
-		# 		end
+		# 		# temp2=temp.split("")
+		# 		# temp2.each do |i|
+		# 		# 	tempstr=tempstr<<i
+		# 		# 	if(tempstr.length==8)
+		# 		# 		result.push(tempstr)
+		# 		# 		tempstr=""
+		# 		# 	end
+		# 		# end
+		# 		# if(tempstr.length!=0)
+		# 		# 	result.push(tempstr)
+		# 		# end
 
-		# 		result.each do|x|
-		# 			resultStr<<x.inspect
-		# 		end
+		# 		# result.each do|x|
+		# 		# 	resultStr<<x.to_i(2).chr.inspect
+		# 		# end
 
 
 		# 		# resultStr=result.unPack('B*').to_s
@@ -86,7 +88,7 @@ class Base64
 		# else
 		# 	puts("not recognized, plz try again")
 		# end
-		# puts(resultStr)
-		 puts(source.unpack('m*'))
+		# puts(numAry)
+		puts(source.unpack('m*'))
 	end#end of method
 end#end of Class
